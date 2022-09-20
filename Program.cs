@@ -64,9 +64,10 @@ Console.WriteLine("sei della biblioteca?y-n");
 string response = Console.ReadLine().ToLower();
 
 bool start = false;
-while (start)
+while (!start)
 {
-   
+
+    
     if (response == "y")
     {
         Console.WriteLine("Inserisci la password");
@@ -78,7 +79,8 @@ while (start)
         }
         else
         {
-            start = false;
+            Console.WriteLine("sei della biblioteca?y-n");
+            response = Console.ReadLine().ToLower();
         }
     }
     else if(response == "n")
@@ -90,10 +92,17 @@ while (start)
         Console.WriteLine("risposta non valida");
         
     }
-    Console.WriteLine("sei della biblioteca?y-n");
-    response = Console.ReadLine().ToLower();
+    
 
 }
+
+if(response == "y")
+{
+    Console.WriteLine("");
+}
+
+
+
 
 
 
