@@ -66,8 +66,7 @@ string response = Console.ReadLine().ToLower();
 bool start = false;
 while (start)
 {
-    
-
+   
     if (response == "y")
     {
         Console.WriteLine("Inserisci la password");
