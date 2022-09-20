@@ -31,6 +31,8 @@ Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di 
 // OGGETTO FIGLIO DVD = + DURATA, *fatto 
 // OGGETTO PRENOTAZIONE = DATA INZIO, DATA DI FINE, NOME COGNOME, ARTICOLO *fatto
 
+//LISTA LIBRI, LISTA DVD * fatto
+
 //FUNZIONI RICERCA PER CODICE 
 //FUNZIONE RICERCA PER TITOLO
 //EFFETTUARE PRESTITO = DATA INIZIO E DATA FINE
@@ -40,8 +42,62 @@ Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di 
 
 //NELLA BIBLIOTECA: 
 
-//LISTA LIBRI, LISTA DVD
 //FUNZIONE AGGIUNGI NUOVO OGGETTO = RICHIAMO IL COSTRUTTORE DELLA CLASSE FIGLIO
 //FUNZIONE RIMUOVI OGGETTO
 
 // devo inserire i libri nella lista della blblioteca
+
+Biblioteca boolTeca = new Biblioteca("boolTeca");
+
+
+Book mobyDick = new Book("Moby Dick", 1851);
+Book marshal = new Book("Le parole sono fineste oppure muri", 1999);
+
+Dvd bigFish = new Dvd("Big Fish", 2003);
+Dvd edward = new Dvd("Edward mani di forbici", 2003);
+
+User ugo = new User("Ugo", "DeUghi", "ugo@gmail.com", "password1", 389789654);
+User dudi = new User("Dudi", "DeDudi", "dudi@gmail.com", "password2", 389789656);
+
+
+Console.WriteLine("sei della biblioteca?y-n");
+string response = Console.ReadLine().ToLower();
+
+bool start = false;
+while (start)
+{
+    
+
+    if (response == "y")
+    {
+        Console.WriteLine("Inserisci la password");
+        string stringToCheck = Console.ReadLine();
+        bool getAccess = boolTeca.checkPassword(stringToCheck);
+        if (getAccess)
+        {
+            start = true;
+        }
+        else
+        {
+            start = false;
+        }
+    }
+    else if(response == "n")
+    {
+        start=true;
+    }
+    else
+    {
+        Console.WriteLine("risposta non valida");
+        
+    }
+    Console.WriteLine("sei della biblioteca?y-n");
+    response = Console.ReadLine().ToLower();
+
+}
+
+
+
+
+
+
