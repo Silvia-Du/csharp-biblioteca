@@ -3,12 +3,13 @@ public class Dvd : Product
 {
     string serialNumber;
     int totMinutes;
-
-    public Dvd(string serialNumber, int totMinutes, string title, int year, string sector, bool isAvailable, string shelf, string authorName, string authorSurname) 
-        : base(title, year, sector, isAvailable, shelf, authorName, authorSurname)
+    public Dvd(string title, int year) : base(title, year)
     {
-
     }
+
+    public string SerialNumber { get { return serialNumber; } set { serialNumber = value; } }
+
+    public int Timers { get { return totMinutes; } set { totMinutes = value; } }
 }
 
 

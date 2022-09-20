@@ -3,10 +3,25 @@ public class Book : Product
 {
     string isbn;
     int pageNumber;
-    public Book(string isbn, int pageNumber, string title, int year, string sector, bool isAvailable, string shelf, string authorName, string authorSurname) 
-        : base(title, year, sector, isAvailable, shelf, authorName, authorSurname)
+    public Book(string title, int year) : base(title, year)
     {
+        
+    }
 
+    public string Isbn { get{ return isbn; } set { isbn = CheckIsbn(value); } }
+    public int PageNumber { get; set; }
+
+
+    //Funzione di verifica per l'isbn
+    private string CheckIsbn(string isbn)
+    {
+        while(isbn.Length == 8)
+        {
+            Console.WriteLine("Inserire un'isbn valido");
+            isbn = Console.ReadLine();
+
+        }
+        return isbn;
     }
 }
 

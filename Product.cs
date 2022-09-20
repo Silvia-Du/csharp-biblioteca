@@ -4,21 +4,31 @@ public class Product
     string title;
     int year;
     string sector;
-    bool isAvailable;
+    bool isAvailable = true;
     string shelf;
     string authorName;
     string authorSurname;
 
-    public Product(string title, int year, string sector, bool isAvailable, string shelf, string authorName, string authorSurname)
+    public Product(string title, int year)
     {
         this.title = title;
         this.year = year;
-        this.sector = sector;
-        this.isAvailable = isAvailable;
-        this.shelf = shelf;
-        this.authorName = authorName;
-        this.authorSurname = authorSurname;
+    
     }
+
+    public string Title{ get { return title; } }
+
+    public int Year{ get { return year; } set { year = value; } }
+
+    public string Sector{ get { return sector; } set { sector = value; } }
+
+    public string Shelf { get { return shelf; } set { shelf = value; } }
+
+    public string AuthorName{ get { return authorName; } set { authorName = value; } }
+
+    public string AuthorSurname { get { return authorSurname; } set { authorSurname = value; } }
+
+
 
 }
 
