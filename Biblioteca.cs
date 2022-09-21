@@ -7,17 +7,18 @@ public class Biblioteca
 {
     string name;
     string password = "passwordB";
-    List<Book> books;
-    List<Dvd> dvd;
-    List<Loan> loans;
-    List<User> users;
+    public List<Book> books;
+    public List<Dvd> dvds;
+    public List<Loan> loans;
+    public List<User> users;
+    Product productNull = new Product("non trovato", 00000);
 
 
     public Biblioteca(string name)
     {
         this.name = name;
         books = new List<Book>();
-        dvd = new List<Dvd>();
+        dvds = new List<Dvd>();
         loans = new List<Loan>();
         users = new List<User>();
     }
@@ -27,23 +28,111 @@ public class Biblioteca
         return this.password.Equals(password);
     }
 
-    public List<Book> Books { get; }
-    public List<Dvd> Dvd { get; }
+    public List<Book> Books { get; set; }
+        
+    public List<Dvd> Dvds { get; }
 
-    public List<Loan> Loan { get; }
+    public List<Loan> Loans { get; }
 
     public List<User> User { get; }
 
 
-    public void searchTitle(string type , string title)
+    public Product SetByTitle(string type, string title)
     {
+        Product research = productNull;
+        if (type == "dvd")
+        {
+            foreach (Dvd dvd in dvds)
+            {
+                if (dvd.Title == title)
+                {
+                    research = dvd;
+                    break;
+                }
+
+            }
+        }
+        else if (type == "libri")
+        {
+            foreach (Book book in books)
+            {
+                if (book.Title == title)
+                {
+
+                    research = book;
+                    break;
+                }
+
+            }
+        }
+
+        return research;
+    }
+
+    public Product SetByCode(string type, string code)
+    {
+        Product research = productNull;
+        if (type == "dvd")
+        {
+            foreach (Dvd dvd in dvds)
+            {
+                if (dvd.SerialNumber == code)
+                {
+                    research = dvd;
+                    break;
+                }
+               
+
+            }
+        }
+        else if (type == "libri")
+        {
+            foreach (Book book in books)
+            {
+                if (book.Isbn == code)
+                {
+
+                    research = book;
+                    break;
+                }
+
+            }
+        }
         
+        return research;
     }
 
-    public void searchCode(string type, string code)
+    public string SetLoan(string userName, string userSurname, Product product)
     {
-
+        loans.Add(new Loan(5, userName, userSurname, product));
+        return "prenotazione avvenuta con successo";
     }
+
+
+    public void SetAddBook(Book prodotto)
+    {
+        books.Add(prodotto);
+        Console.WriteLine(books);
+    }
+
+    //get
+
+    public bool GetCheckUser(string userName, string UserSurname)
+    {
+        bool isUser = false;
+        foreach(User user in users)
+        {
+            if (UserSurname == user.Surname && userName == user.Name)
+            {
+                isUser = true;
+                break;
+;           }
+            
+        }
+        return isUser;
+    }
+
+    
 
 
 

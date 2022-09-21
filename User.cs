@@ -1,31 +1,26 @@
 ﻿// See https://aka.ms/new-console-template for more information
 public class User
 {
-    string name;
-    string surname;
-    string eMail;
-    string password;
-    int telephone;
 
     //costruttore
     public User(string name, string surname, string eMail, string password, int telephone)
     {
-        this.name = name;
-        this.surname = surname;
-        this.eMail = eMail;
-        this.password = password;
-        this.telephone = telephone;
+        this.Name = name.ToLower();
+        this.Surname = surname.ToLower();
+        this.EMail = eMail;
+        this.Password = password;
+        this.Telephone = telephone;
     }
 
-    public string Name { get { return name; } }
+    public string Name { get; set; }
 
-    public string Surname { get { return surname; } }
+    public string Surname { get; set; }
 
-    public string EMail { get { return eMail; } }
+    public string EMail { get; set;  }
 
-    public int Tlephone { get { return telephone; } }
+    public int Telephone { get; set; }
 
-    public string Password { get { return password; } set { password = value; } }
+    public string Password { get; set; }
 }
 
 

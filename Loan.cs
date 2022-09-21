@@ -5,9 +5,9 @@ public class Loan
     int duration;
     string name;
     string surname;
-    string product;
+    Product product;
 
-    public Loan( int duration, string name, string surname, string product)
+    public Loan( int duration, string name, string surname, Product product)
     {
         this.startDate = new DateTime();
         this.duration = duration;
@@ -24,7 +24,7 @@ public class Loan
 
     public int Duration { get { return duration; } }
 
-    public string Product { get { return product; } }
+    public Product Product { get { return product; } }
 
 
 }

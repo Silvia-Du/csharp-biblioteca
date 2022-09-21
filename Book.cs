@@ -3,9 +3,9 @@ public class Book : Product
 {
     string isbn;
     int pageNumber;
-    public Book(string title, int year) : base(title, year)
+    public Book(string title, int year, string isbn) : base(title, year)
     {
-        
+        this.isbn = CheckIsbn( isbn);
     }
 
     public string Isbn { get{ return isbn; } set { isbn = CheckIsbn(value); } }
